@@ -1,0 +1,2 @@
+* * * * * /bin/sh /home/rafaelfs/Área\ de\ Trabalho/monitor.sh >> /home/rafaelfs/Área\ de\ Trabalho/monitor.log 2>&1
+# Single cron example
