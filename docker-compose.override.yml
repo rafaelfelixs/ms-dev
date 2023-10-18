@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+  redis:
+    container_name: ms-dev-redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - net_ms_dev
+
+  mysql:
+    container_name: ms-dev-mysql
+    image: mysql:8.0.25
+    ports:
+      - "3306:3306"
+    volumes:
+      - ms_dev_mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ms-dev-mysql
+      MYSQL_ROOT_PASSWORD: root
+    env_file:
+      - .env
+    networks:
+      - net_ms_dev
+
+  ms-dev:
+    container_name: ms-dev-container
+    image: public.ecr.aws/docker/library/node:18-alpine3.17
+    working_dir: /application
+    volumes:
+      - ./app:/application
+    ports:
+      - "3010:3010"
+      - "9229:9229"
+    depends_on:
+      - redis
+    environment:
+      TZ: "America/Fortaleza"
+      NODE_ENV: development
+    env_file:
+      - .env
+    networks:
+      - net_ms_dev
+    command: ["yarn", "dev" ]
+
+networks:
+  net_ms_dev:
+    external: true
+
+volumes:
+  ms_dev_mysql_data:
+    name: ms_dev_mysql_data

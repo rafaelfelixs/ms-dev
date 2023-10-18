@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+    yarn:
+      user: root
+      image: public.ecr.aws/docker/library/node:18-alpine3.17
+      working_dir: /application
+      volumes:
+        - ./app:/application
+      entrypoint: yarn
+      env_file:
+        - .env
+      networks:
+        - net_ms_dev
+
+
+networks:
+  net_ms_dev:
+    external: true

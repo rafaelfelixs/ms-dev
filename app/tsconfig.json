@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["esnext"],
+    "module": "commonjs",
+    "outDir": ".build",
+    "rootDir": "./",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts", "src/*.ts"],
+  "exclude": [".git", "**/*.js", ".build/**/*", "docs", "node_modules/**/*"]
+}
