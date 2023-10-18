@@ -1,11 +1,11 @@
-import {UsersRepository} from '../../../Domain/Repositories/UsersRepository';
-import {logger} from '../../../Api/Utils/Logger';
-import {UserScoreDto} from '../Dto/UserScoreDto';
+import { UsersRepository } from '../../../Domain/Repositories/UsersRepository';
+import { logger } from '../../../Api/Utils/Logger';
+import { UserScoreDto } from '../Dto/UserScoreDto';
 import AuthHelper from '../../Auth/Helpers/AuthHelper';
-import {CODE_ERROR_BAD_SCORE, CODE_ERROR_BAD_TOKEN} from '../../Auth/Exception/CodeErrors/CodeErrors';
-import {StorageRedis} from '../../../Api/Storage/StorageRedis';
-import {BadRequestException} from '../../../Api/Exception/BadRequestException';
-import {isNumeric} from "../Helpers/ScoreHelper";
+import { CODE_ERROR_BAD_SCORE, CODE_ERROR_BAD_TOKEN } from '../../Auth/Exception/CodeErrors/CodeErrors';
+import { StorageRedis } from '../../../Api/Storage/StorageRedis';
+import { BadRequestException } from '../../../Api/Exception/BadRequestException';
+import { isNumeric } from '../Helpers/ScoreHelper';
 
 export class SaveScoreService {
   private usersRepository: UsersRepository;
@@ -16,7 +16,7 @@ export class SaveScoreService {
   }
 
   public async invoke(dto: UserScoreDto): Promise<void> {
-    if(!isNumeric(dto.score)) {
+    if (!isNumeric(dto.score)) {
       throw new BadRequestException(CODE_ERROR_BAD_SCORE);
     }
 
