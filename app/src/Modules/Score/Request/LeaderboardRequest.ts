@@ -4,5 +4,5 @@ import { IsNotEmpty } from 'class-validator';
 export class LeaderboardRequest {
   @IsNotEmpty({ message: 'Token is mandatory!' })
   @Expose()
-  token: string;
+  tokenbn: string;
 }

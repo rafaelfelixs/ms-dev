@@ -11,7 +11,7 @@ export class SaveScoreTransformer implements IApiTransformer<UserScoreDto, any> 
 
     return {
       score: Number(requestObject.myScore),
-      token: requestObject.token,
+      token: requestObject.myScore,
     };
   }
 

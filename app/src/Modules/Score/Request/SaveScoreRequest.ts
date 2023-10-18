@@ -1,10 +1,10 @@
 import { Expose } from 'class-transformer';
-import { IsNotEmpty, IsNumberString, MaxLength } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class SaveScoreRequest {
   @IsNotEmpty({ message: 'Token is mandatory!' })
   @Expose()
-  token: string;
+  tokenbn: string;
 
   @IsNotEmpty({ message: 'MyScore is mandatory!' })
   @Expose()

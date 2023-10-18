@@ -12,7 +12,7 @@ export class LeaderboardTransformer implements IApiTransformer<LeaderboardDto, L
 
     return {
       currentUserRank: {
-        token: requestObject.token,
+        token: requestObject.tokenbn,
       },
     };
   }
