@@ -1,5 +1,4 @@
 import { IApiTransformer } from '../../../Api/Transformers/IApiTransformer';
-import { IDatabaseTransformer } from '../../../Api/Transformers/IDatabaseTransformer';
 import { ClassValidator } from '../../../Api/Validation/ClassValidator';
 import { AuthenticateRequest } from '../Request/AuthenticateRequest';
 import { AuthenticateDto } from '../Dto/AuthenticateDto';
@@ -19,7 +18,7 @@ export class AuthenticateTransformer implements IApiTransformer<AuthenticateDto,
 
   public async toApi(dto: AuthenticateDto): Promise<AuthenticateResponse> {
     return {
-      tokenBn: dto.tokenBn,
+      tokenbn: dto.tokenbn,
       tokenExpiresIn: dto.tokenExpiresIn,
     };
   }

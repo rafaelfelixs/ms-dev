@@ -38,6 +38,6 @@ export class AuthenticateService {
     logger.info(`Updating last access of user ${userEntity.userName} | ${moment().utc().toDate()}`);
     await this.usersRepository.updateLastAccess(userEntity.id);
 
-    return { ...dto, tokenBn: token, tokenExpiresIn: EXPIRES_TOKEN };
+    return { ...dto, tokenbn: token, tokenExpiresIn: EXPIRES_TOKEN };
   }
 }

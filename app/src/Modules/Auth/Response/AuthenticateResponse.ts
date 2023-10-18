@@ -1,4 +1,4 @@
 export interface AuthenticateResponse {
-  tokenBn: string;
+  tokenbn: string;
   tokenExpiresIn: number;
 }

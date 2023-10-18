@@ -1,6 +1,6 @@
 import { UserDto } from '../../Users/Dto/UserDto';
 
 export interface AuthenticateDto extends UserDto {
-  tokenBn?: string;
+  tokenbn?: string;
   tokenExpiresIn?: number;
 }
