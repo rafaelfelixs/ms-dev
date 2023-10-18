@@ -9,7 +9,7 @@ export class SaveScoreController {
 
   public async handle(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
-      const dto = <UserScoreDto>await this.transformer.fromApi({ ...req.body, ...req.headers });
+      const dto = <UserScoreDto>await this.transformer.fromApi(req.body);
       await this.service.invoke(dto);
       return res.status(200).send('OK');
     } catch (error) {

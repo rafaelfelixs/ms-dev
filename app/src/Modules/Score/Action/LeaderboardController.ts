@@ -9,7 +9,7 @@ export class LeaderboardController {
 
   public async handle(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
-      let dto = <LeaderboardDto>await this.transformer.fromApi(req.headers);
+      let dto = <LeaderboardDto>await this.transformer.fromApi(req.body);
       dto = await this.service.invoke(dto);
       const response = <LeaderboardResponse>await this.transformer.toApi(dto);
       return res.status(200).send(response);
