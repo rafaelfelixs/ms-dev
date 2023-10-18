@@ -1,7 +1,6 @@
 import { IApiTransformer } from '../../../Api/Transformers/IApiTransformer';
 import { NextFunction, Request, Response } from 'express';
 import { SaveScoreService } from '../Services/SaveScoreService';
-import { LeaderboardDto } from '../Dto/LeaderboardDto';
 import { UserScoreDto } from '../Dto/UserScoreDto';
 
 export class SaveScoreController {
