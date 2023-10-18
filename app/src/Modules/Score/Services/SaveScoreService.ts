@@ -23,7 +23,7 @@ export class SaveScoreService {
     const EXPIRES_TOKEN = Number(process.env.TOKEN_EXPIRES_MINUTES) * 60;
 
     logger.info('Validating token');
-    const userEntity = await AuthHelper.getUserAuth(dto.token);
+    const userEntity = await AuthHelper.getUserAuth(dto.tokenbn);
 
     if (!userEntity) {
       throw new BadRequestException(CODE_ERROR_BAD_TOKEN);
@@ -40,7 +40,7 @@ export class SaveScoreService {
     await this.storageRedis.zAddScore(dto.score, userEntity.userName);
     logger.info(`User ${userEntity.userName} added score ${dto.score} successfully!`);
 
-    await AuthHelper.saveUserAuth(dto.token, userEntity, EXPIRES_TOKEN);
+    await AuthHelper.saveUserAuth(dto.tokenbn, userEntity, EXPIRES_TOKEN);
     logger.info('Refreshing user token!');
   }
 }

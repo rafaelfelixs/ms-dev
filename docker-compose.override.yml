@@ -34,16 +34,15 @@ services:
       - "3010:3010"
       - "9229:9229"
     depends_on:
-      - redis
       - mysql
+      - redis
     environment:
-      TZ: "America/Fortaleza"
       NODE_ENV: development
     env_file:
       - .env
     networks:
       - net_ms_dev
-    command: ["yarn", "dev" ]
+    command: ["yarn", "debug" ]
 
 networks:
   net_ms_dev:

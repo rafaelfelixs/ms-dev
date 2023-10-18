@@ -20,7 +20,7 @@ export class LeaderboardService {
     const EXPIRES_TOKEN = Number(process.env.TOKEN_EXPIRES_MINUTES) * 60;
 
     logger.info('Validating token');
-    const userEntity = await AuthHelper.getUserAuth(dto.currentUserRank.token);
+    const userEntity = await AuthHelper.getUserAuth(dto.currentUserRank.tokenbn);
 
     if (!userEntity) {
       throw new BadRequestException(CODE_ERROR_BAD_TOKEN);
@@ -45,7 +45,7 @@ export class LeaderboardService {
     }
     logger.info('UserScore found successfully!');
 
-    await AuthHelper.saveUserAuth(dto.currentUserRank.token, userEntity, EXPIRES_TOKEN);
+    await AuthHelper.saveUserAuth(dto.currentUserRank.tokenbn, userEntity, EXPIRES_TOKEN);
     logger.info('Refreshing user token!');
 
     return { ...dto, rank: leaderBoardArray.slice(0, 3), currentUserRank: { myRank: myRank, score: score, userName: userEntity.userName } };
